@@ -6,6 +6,7 @@ const mongoose = require('mongoose') // helps us to connect to mongo db
 const app = express()
 
 
+// middle ware
 app.use(cors())
 app.use(express.json())
 
