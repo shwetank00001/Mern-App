@@ -13,6 +13,11 @@ app.use(express.json())
 const uri = process.env.ATLAS_URI // data base usi-> we get from mongodb dash
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex:true}) // we connect to uri here
 
+
+const connection= mongoose.connection
+connection.once('open', ()=> {
+    console.log("DONE")
+})
 app.listen(5000, ()=>{
     console.log("ON PORT", 5000)
 })
