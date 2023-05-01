@@ -1,11 +1,12 @@
 const router = require('express').Router();
 let Exercise = require('../modals/exercise.modal');
 
-router.route('/').get((req, res) => {
+
+router.route('/').get((req,res) => {
   Exercise.find()
-    .then(exercises => res.json(exercises))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+    .then(item => res.json(item))
+    .catch( err => res.json(`Error : ` + err).status(400))
+})
 
 router.route('/add').post((req, res) => {
   const username = req.body.username;
